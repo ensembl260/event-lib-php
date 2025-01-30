@@ -1,6 +1,6 @@
 <?php
 
-namespace MR\Event;
+namespace Ensembl260\Event;
 
 use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
 use PhpAmqpLib\Message\AMQPMessage;
@@ -14,7 +14,7 @@ abstract class EventConsumer implements ConsumerInterface
      */
     protected $logger;
 
-    public function __construct(LoggerInterface $logger = null)
+    public function __construct(?LoggerInterface $logger = null)
     {
         $this->logger = $logger ?: new NullLogger();
     }

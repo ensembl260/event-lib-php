@@ -1,6 +1,6 @@
 <?php
 
-namespace MR\Event;
+namespace Ensembl260\Event;
 
 final class EventMessage implements \JsonSerializable
 {
@@ -14,17 +14,10 @@ final class EventMessage implements \JsonSerializable
      */
     private $id;
 
-    /**
+    public function __construct(?string $event = null, $id = null, /**
      * @var string
      */
-    private $modelType;
-
-    /**
-     * @var array
-     */
-    private $metadata;
-
-    public function __construct(string $event = null, $id = null, string $modelType = null, array $metadata = [])
+        private ?string $modelType = null, private array $metadata = [])
     {
         if ($event && !EventType::isValidValue($event)) {
             throw EventException::invalidEventType($event);
@@ -36,8 +29,6 @@ final class EventMessage implements \JsonSerializable
 
         $this->event = $event;
         $this->id = $id;
-        $this->modelType = $modelType;
-        $this->metadata = $metadata;
     }
 
     public function getEvent(): string

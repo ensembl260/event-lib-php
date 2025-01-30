@@ -1,6 +1,6 @@
 <?php
 
-namespace MR\Event;
+namespace Ensembl260\Event;
 
 use OldSound\RabbitMqBundle\RabbitMq\Producer;
 use Psr\Log\LoggerInterface;
@@ -9,18 +9,12 @@ use Psr\Log\NullLogger;
 class EventProducer
 {
     /**
-     * @var Producer
-     */
-    private $producer;
-
-    /**
      * @var LoggerInterface
      */
     protected $logger;
 
-    public function __construct(Producer $producer, LoggerInterface $logger = null)
+    public function __construct(private Producer $producer, ?LoggerInterface $logger = null)
     {
-        $this->producer = $producer;
         $this->logger = $logger ?: new NullLogger();
     }
 

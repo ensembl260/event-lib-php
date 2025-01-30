@@ -1,13 +1,13 @@
 <?php
 
-namespace MR\Event;
+namespace Ensembl260\Event;
 
 use Greg0ire\Enum\AbstractEnum;
 
 final class EventType extends AbstractEnum
 {
     // Doctrine Events
-    const CREATED = 'created';
-    const UPDATED = 'updated';
-    const DELETED = 'deleted';
+    public const CREATED = 'created';
+    public const UPDATED = 'updated';
+    public const DELETED = 'deleted';
 }
