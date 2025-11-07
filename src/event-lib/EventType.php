@@ -2,9 +2,7 @@
 
 namespace Ensembl260\Event;
 
-use Greg0ire\Enum\AbstractEnum;
-
-final class EventType extends AbstractEnum
+enum EventType: string
 {
     // Doctrine Events
     public const CREATED = 'created';
