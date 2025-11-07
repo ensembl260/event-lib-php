@@ -14,12 +14,16 @@ final class EventMessage implements \JsonSerializable
      */
     private $id;
 
-    public function __construct(?string $event = null, $id = null, /**
-     * @var string
-     */
-        private ?string $modelType = null, private array $metadata = [])
-    {
-        if ($event && !EventType::isValidValue($event)) {
+    public function __construct(
+        ?string $event = null,
+        $id = null,
+        /**
+         * @var string
+         */
+        private ?string $modelType = null,
+        private array $metadata = [],
+    ) {
+        if ($event && !EventType::tryFrom($event)) {
             throw EventException::invalidEventType($event);
         }
 
